@@ -29,84 +29,84 @@ public class LoginControler{
    private int n = 0;
    private int i = 0;
    private ControlerThread ct1;
-   // ÀÌºÎºĞÀº µğÀÚÀÎ ÀÔÈ÷°í ÀÌ¹ÌÁö ÀÔÇôÁø ¹öÆ°¿¡ ÀÌº¥Æ® Àü´ŞÇÏ±â À§ÇÑ ºÎºĞÀÓ. Áß¿äx
+   // ì´ë¶€ë¶„ì€ ë””ìì¸ ì…íˆê³  ì´ë¯¸ì§€ ì…í˜€ì§„ ë²„íŠ¼ì— ì´ë²¤íŠ¸ ì „ë‹¬í•˜ê¸° ìœ„í•œ ë¶€ë¶„ì„. ì¤‘ìš”x
    private class MouseAdapter implements MouseListener, MouseMotionListener{
-      // Á¾·á¹öÆ°À§¿¡ ¸¶¿ì½º¸¦ ¿Ã·ÈÀ»¶§ÀÇ »ç°ÇÀ» ±¸Çö.
+      // ì¢…ë£Œë²„íŠ¼ìœ„ì— ë§ˆìš°ìŠ¤ë¥¼ ì˜¬ë ¸ì„ë•Œì˜ ì‚¬ê±´ì„ êµ¬í˜„.
       public void mouseEntered(MouseEvent e){
          if(e.getSource() == view.getExit_bt()) {
-            // Á¾·á¹öÆ°ÀÇ ¾ÆÀÌÄÜÀ» exitentered_imgÀ¸·Î ¼³Á¤.
+            // ì¢…ë£Œë²„íŠ¼ì˜ ì•„ì´ì½˜ì„ exitentered_imgìœ¼ë¡œ ì„¤ì •.
             view.getExit_bt().setIcon(view.getExitentered_img());
-            // Á¾·á¹öÆ°À§¿¡ Ä¿¼­°¡ ÀÖÀ»½Ã ÇÚµåÄ¿¼­·Î º¯°æ.
+            // ì¢…ë£Œë²„íŠ¼ìœ„ì— ì»¤ì„œê°€ ìˆì„ì‹œ í•¸ë“œì»¤ì„œë¡œ ë³€ê²½.
             view.getExit_bt().setCursor(new Cursor(Cursor.HAND_CURSOR));
          } else if(e.getSource() == view.getLogin_bt()) {
-            // ·Î±×ÀÎ¹öÆ°ÀÇ ¾ÆÀÌÄÜÀ» loginEntered_imgÀ¸·Î ¼³Á¤.
+            // ë¡œê·¸ì¸ë²„íŠ¼ì˜ ì•„ì´ì½˜ì„ loginEntered_imgìœ¼ë¡œ ì„¤ì •.
             view.getLogin_bt().setIcon(view.getLoginEntered_img());
-            // ·Î±×ÀÎ¹öÆ°À§¿¡ Ä¿¼­°¡ ÀÖÀ»½Ã ÇÚµåÄ¿¼­·Î º¯°æ.
+            // ë¡œê·¸ì¸ë²„íŠ¼ìœ„ì— ì»¤ì„œê°€ ìˆì„ì‹œ í•¸ë“œì»¤ì„œë¡œ ë³€ê²½.
             view.getLogin_bt().setCursor(new Cursor(Cursor.HAND_CURSOR));
          } else if(e.getSource() == view.getJoin_bt()){
-            // °¡ÀÔ¹öÆ°ÀÇ ¾ÆÀÌÄÜÀ» joinEntered_imgÀ¸·Î ¼³Á¤.
+            // ê°€ì…ë²„íŠ¼ì˜ ì•„ì´ì½˜ì„ joinEntered_imgìœ¼ë¡œ ì„¤ì •.
             view.getJoin_bt().setIcon(view.getJoinEntered_img());
-            // °¡ÀÔ¹öÆ°À§¿¡ Ä¿¼­°¡ ÀÖÀ»½Ã ÇÚµåÄ¿¼­·Î º¯°æ.
+            // ê°€ì…ë²„íŠ¼ìœ„ì— ì»¤ì„œê°€ ìˆì„ì‹œ í•¸ë“œì»¤ì„œë¡œ ë³€ê²½.
             view.getJoin_bt().setCursor(new Cursor(Cursor.HAND_CURSOR));
          }
       }
       
-      /// Á¾·á¹öÆ°¿¡¼­ ¸¶¿ì½º¸¦ ³»·ÈÀ»¶§ÀÇ »ç°ÇÀ» ±¸Çö.
+      /// ì¢…ë£Œë²„íŠ¼ì—ì„œ ë§ˆìš°ìŠ¤ë¥¼ ë‚´ë ¸ì„ë•Œì˜ ì‚¬ê±´ì„ êµ¬í˜„.
       public void mouseExited(MouseEvent e){
          if(e.getSource() == view.getExit_bt()) {
-            // Á¾·á¹öÆ°¿¡¼­ ¸¶¿ì½º¸¦ ³»·ÈÀ»¶§ÀÇ ¾ÆÀÌÄÜÀ» exitbasic_img·Î ¼³Á¤.
+            // ì¢…ë£Œë²„íŠ¼ì—ì„œ ë§ˆìš°ìŠ¤ë¥¼ ë‚´ë ¸ì„ë•Œì˜ ì•„ì´ì½˜ì„ exitbasic_imgë¡œ ì„¤ì •.
             view.getExit_bt().setIcon(view.getExitbasic_img());
-            // Á¾·á¹öÆ°¿¡¼­ ¸¶¿ì½º¸¦ ³»·ÈÀ»¶§ Ä¿¼­¸¦ ±âº»Ä¿¼­·Î ¼³Á¤.
+            // ì¢…ë£Œë²„íŠ¼ì—ì„œ ë§ˆìš°ìŠ¤ë¥¼ ë‚´ë ¸ì„ë•Œ ì»¤ì„œë¥¼ ê¸°ë³¸ì»¤ì„œë¡œ ì„¤ì •.
             view.getExit_bt().setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
          } else if(e.getSource() == view.getLogin_bt()) {
-            // ·Î±×ÀÎ¹öÆ°¿¡¼­ ¸¶¿ì½º¸¦ ³»·ÈÀ»¶§ÀÇ ¾ÆÀÌÄÜÀ» login_img·Î ¼³Á¤.
+            // ë¡œê·¸ì¸ë²„íŠ¼ì—ì„œ ë§ˆìš°ìŠ¤ë¥¼ ë‚´ë ¸ì„ë•Œì˜ ì•„ì´ì½˜ì„ login_imgë¡œ ì„¤ì •.
             view.getLogin_bt().setIcon(view.getLogin_img());
-            // ·Î±×ÀÎ¹öÆ°¿¡¼­ ¸¶¿ì½º¸¦ ³»·ÈÀ»¶§ Ä¿¼­¸¦ ±âº»Ä¿¼­·Î ¼³Á¤.
+            // ë¡œê·¸ì¸ë²„íŠ¼ì—ì„œ ë§ˆìš°ìŠ¤ë¥¼ ë‚´ë ¸ì„ë•Œ ì»¤ì„œë¥¼ ê¸°ë³¸ì»¤ì„œë¡œ ì„¤ì •.
             view.getLogin_bt().setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
          } else if(e.getSource() == view.getJoin_bt()){
-            // °¡ÀÔ¹öÆ°¿¡¼­ ¸¶¿ì½º¸¦ ³»·ÈÀ»¶§ÀÇ ¾ÆÀÌÄÜÀ» join_img·Î ¼³Á¤.
+            // ê°€ì…ë²„íŠ¼ì—ì„œ ë§ˆìš°ìŠ¤ë¥¼ ë‚´ë ¸ì„ë•Œì˜ ì•„ì´ì½˜ì„ join_imgë¡œ ì„¤ì •.
             view.getJoin_bt().setIcon(view.getJoin_img());
-            // °¡ÀÔ¹öÆ°¿¡¼­ ¸¶¿ì½º¸¦ ³»·ÈÀ»¶§ Ä¿¼­¸¦ ±âº»Ä¿¼­·Î ¼³Á¤.
+            // ê°€ì…ë²„íŠ¼ì—ì„œ ë§ˆìš°ìŠ¤ë¥¼ ë‚´ë ¸ì„ë•Œ ì»¤ì„œë¥¼ ê¸°ë³¸ì»¤ì„œë¡œ ì„¤ì •.
             view.getJoin_bt().setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
          }
       }
       
-      // Á¾·á¹öÆ°À» Å¬¸¯ÇßÀ»¶§ÀÇ »ç°ÇÀ» ±¸Çö.
+      // ì¢…ë£Œë²„íŠ¼ì„ í´ë¦­í–ˆì„ë•Œì˜ ì‚¬ê±´ì„ êµ¬í˜„.
       public void mousePressed(MouseEvent e){
          if(e.getSource() == view.getMenubar_l()) {
-            // ÀÌº¥Æ®°¡ ¹ß»ıÇßÀ»¶§ÀÇ ±× ÁÂÇ¥¸¦ ¾ò¾î¿È.
+            // ì´ë²¤íŠ¸ê°€ ë°œìƒí–ˆì„ë•Œì˜ ê·¸ ì¢Œí‘œë¥¼ ì–»ì–´ì˜´.
             view.setMouseX(e.getX());
             view.setMouseY(e.getY());
          } else if(e.getSource() == view.getExit_bt()){
 
-            // ¿¹¿Ü Ã³¸®.
+            // ì˜ˆì™¸ ì²˜ë¦¬.
             try {
-               Thread.sleep(1000);   // ¹öÆ°À» ´©¸£ÀÚ¸¶ÀÚ ²¨Áö¸é È¿°úÀ½ÀÌ µé¸®Áö ¾Ê±â ¶§¹®¿¡ 1ÃÊ Á¤µµÀÇ ±â°£À» ÁÜ.
+               Thread.sleep(1000);   // ë²„íŠ¼ì„ ëˆ„ë¥´ìë§ˆì êº¼ì§€ë©´ íš¨ê³¼ìŒì´ ë“¤ë¦¬ì§€ ì•Šê¸° ë•Œë¬¸ì— 1ì´ˆ ì •ë„ì˜ ê¸°ê°„ì„ ì¤Œ.
             }catch(InterruptedException ex)
             {
-               // ¿¡·¯°¡ ¹ß»ıÇÑ ¸Ş¼ÒµåÀÇ È£Ãâ ±â·ÏÀ» Ãâ·ÂÇÔ.
+               // ì—ëŸ¬ê°€ ë°œìƒí•œ ë©”ì†Œë“œì˜ í˜¸ì¶œ ê¸°ë¡ì„ ì¶œë ¥í•¨.
                ex.printStackTrace();
             }
-            // ÇÁ·Î±×·¥À» Á¾·á½ÃÅ´.
+            // í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œì‹œí‚´.
             System.exit(0);
          } else {
-            // ¿¹¿Ü Ã³¸®.
+            // ì˜ˆì™¸ ì²˜ë¦¬.
             try {
-               Thread.sleep(1000);   // ¹öÆ°À» ´©¸£ÀÚ¸¶ÀÚ ²¨Áö¸é È¿°úÀ½ÀÌ µé¸®Áö ¾Ê±â ¶§¹®¿¡ 1ÃÊ Á¤µµÀÇ ±â°£À» ÁÜ.
+               Thread.sleep(1000);   // ë²„íŠ¼ì„ ëˆ„ë¥´ìë§ˆì êº¼ì§€ë©´ íš¨ê³¼ìŒì´ ë“¤ë¦¬ì§€ ì•Šê¸° ë•Œë¬¸ì— 1ì´ˆ ì •ë„ì˜ ê¸°ê°„ì„ ì¤Œ.
             }catch(InterruptedException ex)
             {
-               // ¿¡·¯°¡ ¹ß»ıÇÑ ¸Ş¼ÒµåÀÇ È£Ãâ ±â·ÏÀ» Ãâ·ÂÇÔ.
+               // ì—ëŸ¬ê°€ ë°œìƒí•œ ë©”ì†Œë“œì˜ í˜¸ì¶œ ê¸°ë¡ì„ ì¶œë ¥í•¨.
                ex.printStackTrace();
             }
          }
       }
       
       public void mouseDragged(MouseEvent e){
-         // ÇöÀç ½ºÅ©¸°ÀÇ ÁÂÇ¥¸¦ ¾ò¾î¿È.
+         // í˜„ì¬ ìŠ¤í¬ë¦°ì˜ ì¢Œí‘œë¥¼ ì–»ì–´ì˜´.
          int x = e.getXOnScreen();
          int y = e.getYOnScreen();
          
-         // ÇÁ·¹ÀÓÀÇ À§Ä¡¸¦ µå·¡±×ÇÑ°÷À¸·Î ÀÌµ¿½ÃÅ´.
+         // í”„ë ˆì„ì˜ ìœ„ì¹˜ë¥¼ ë“œë˜ê·¸í•œê³³ìœ¼ë¡œ ì´ë™ì‹œí‚´.
          app.setLocation(x - view.getMouseX(), y - view.getMouseY());
       }
 
@@ -158,23 +158,19 @@ public class LoginControler{
           
              lg = inputstream.readUTF();
              if(lg.equals("true")) {
-                  JOptionPane.showMessageDialog(null, "·Î±×ÀÎ µÇ¾ú½À´Ï´Ù");
+                  JOptionPane.showMessageDialog(null, "ë¡œê·¸ì¸ ë˜ì—ˆìŠµë‹ˆë‹¤");
 
 
-                  // ApplicationÀÌ card LayoutÀ¸·Î µÇÀÖ´Ù°í ÇßÁö?
-                  // Application ÇÁ·¹ÀÓ ¾È¿¡ ¼ø¼­´ë·Î ·Î±×ÀÎ, ´ë±â½Ç, ÀÎ°ÔÀÓÀÌ µé¾îÀÖ´Âµ¥ changePanelÀÌ
-                  // ¹Ù·Î ´ÙÀ½ ¼ø¼­ ÆĞ³Î·Î È­¸é ÀüÈ¯½ÃÄÑÁÖ´Â¾ÖÀÓ
+                  // Applicationì´ card Layoutìœ¼ë¡œ ë˜ìˆë‹¤ê³  í–ˆì§€?
+                  // Application í”„ë ˆì„ ì•ˆì— ìˆœì„œëŒ€ë¡œ ë¡œê·¸ì¸, ëŒ€ê¸°ì‹¤, ì¸ê²Œì„ì´ ë“¤ì–´ìˆëŠ”ë° changePanelì´
+                  // ë°”ë¡œ ë‹¤ìŒ ìˆœì„œ íŒ¨ë„ë¡œ í™”ë©´ ì „í™˜ì‹œì¼œì£¼ëŠ”ì• ì„
                   app.changePanel();
                   app.setSize(800,600);
-                  app.setTitle("´ë±â½Ç");
+                  app.setTitle("ëŒ€ê¸°ì‹¤");
                   app.setSize(800,600);
                } else {
-                  JOptionPane.showMessageDialog(null, "½ÇÆĞ");
-                  try {
-                     Thread.sleep(1000);
-                  }catch(InterruptedException e) {
-                  }
-                  ct1.interrupt();
+                  JOptionPane.showMessageDialog(null, "ì‹¤íŒ¨");
+              
                }
           
          }
@@ -184,20 +180,20 @@ public class LoginControler{
       }
    }
    
-   // ÀÌºÎºĞºÎÅÍ º¸¸é µÊ
-   // ·Î±×ÀÎ ÆĞ³Î¿¡¼­ ¹öÆ°µé Å¬¸¯ÇÏ¸é ¹ß»ıÇÏ´Â ÀÌº¥Æ® Ã³¸®ÇØÁÖ±â À§ÇÑ ³»ºÎÅ¬·¡½º
+   // ì´ë¶€ë¶„ë¶€í„° ë³´ë©´ ë¨
+   // ë¡œê·¸ì¸ íŒ¨ë„ì—ì„œ ë²„íŠ¼ë“¤ í´ë¦­í•˜ë©´ ë°œìƒí•˜ëŠ” ì´ë²¤íŠ¸ ì²˜ë¦¬í•´ì£¼ê¸° ìœ„í•œ ë‚´ë¶€í´ë˜ìŠ¤
    private class ButtonListener implements ActionListener {
       Socket toWaiting;
-      // ¹öÆ° ´©¸£¸é ±× ¹öÆ°¿¡ ´ëÇÑ event°¡ ³Ñ¾î¿Â´Ù.
-      // ¹öÆ°ÀÌ ´­·ÈÀ»¶§ ¹«¾ùÀ» ÇØÁà¾ßÇÒÁö Á¤ÇØÁÖ´Â ¸Ş¼Òµå
+      // ë²„íŠ¼ ëˆ„ë¥´ë©´ ê·¸ ë²„íŠ¼ì— ëŒ€í•œ eventê°€ ë„˜ì–´ì˜¨ë‹¤.
+      // ë²„íŠ¼ì´ ëˆŒë ¸ì„ë•Œ ë¬´ì—‡ì„ í•´ì¤˜ì•¼í• ì§€ ì •í•´ì£¼ëŠ” ë©”ì†Œë“œ
 
       public void actionPerformed(ActionEvent event){
-         // ·Î±×ÀÎ ¹öÆ° ¼±ÅÃ½Ã
+         // ë¡œê·¸ì¸ ë²„íŠ¼ ì„ íƒì‹œ
          if(event.getSource() == view.getLogin_bt()) {
             
             ct1 = new ControlerThread(server,1);
                ct1.start();
-              
+               ct1=null;
               // ct1.run();
            
             
@@ -205,45 +201,45 @@ public class LoginControler{
             
             //if(lg != null) {
 //               if(lg.equals("true")) {
-//                  JOptionPane.showMessageDialog(null, "·Î±×ÀÎ µÇ¾ú½À´Ï´Ù");
+//                  JOptionPane.showMessageDialog(null, "ë¡œê·¸ì¸ ë˜ì—ˆìŠµë‹ˆë‹¤");
 //
 //
-//                  // ApplicationÀÌ card LayoutÀ¸·Î µÇÀÖ´Ù°í ÇßÁö?
-//                  // Application ÇÁ·¹ÀÓ ¾È¿¡ ¼ø¼­´ë·Î ·Î±×ÀÎ, ´ë±â½Ç, ÀÎ°ÔÀÓÀÌ µé¾îÀÖ´Âµ¥ changePanelÀÌ
-//                  // ¹Ù·Î ´ÙÀ½ ¼ø¼­ ÆĞ³Î·Î È­¸é ÀüÈ¯½ÃÄÑÁÖ´Â¾ÖÀÓ
+//                  // Applicationì´ card Layoutìœ¼ë¡œ ë˜ìˆë‹¤ê³  í–ˆì§€?
+//                  // Application í”„ë ˆì„ ì•ˆì— ìˆœì„œëŒ€ë¡œ ë¡œê·¸ì¸, ëŒ€ê¸°ì‹¤, ì¸ê²Œì„ì´ ë“¤ì–´ìˆëŠ”ë° changePanelì´
+//                  // ë°”ë¡œ ë‹¤ìŒ ìˆœì„œ íŒ¨ë„ë¡œ í™”ë©´ ì „í™˜ì‹œì¼œì£¼ëŠ”ì• ì„
 //                  app.changePanel();
 //                  app.setSize(800,600);
-//                  app.setTitle("´ë±â½Ç");
+//                  app.setTitle("ëŒ€ê¸°ì‹¤");
 //                  app.setSize(800,600);
 //               } else {
-//                  JOptionPane.showMessageDialog(null, "½ÇÆĞ");
+//                  JOptionPane.showMessageDialog(null, "ì‹¤íŒ¨");
 //               }
            // }
-         // È¸¿ø°¡ÀÔ ¹öÆ° ¼±ÅÃ   
+         // íšŒì›ê°€ì… ë²„íŠ¼ ì„ íƒ   
          } else {
-            // È¸¿ø°¡ÀÔ Ã¢ »ı¼º
+            // íšŒì›ê°€ì… ì°½ ìƒì„±
             rv = new RegisterView();
-            // È¸¿ø°¡ÀÔ Controler ¿¬°á
+            // íšŒì›ê°€ì… Controler ì—°ê²°
             rc = new RegisterControler(rv);
-            // È¸¿ø°¡ÀÔ Ã¢¿¡¼­µµ ¹öÆ°Àº ÀÖÀ¸´Ï±î °Â³× listenerµéÀ» ¿¬°á½ÃÄÑÁÖ´Â ¸Ş¼Òµå
+            // íšŒì›ê°€ì… ì°½ì—ì„œë„ ë²„íŠ¼ì€ ìˆìœ¼ë‹ˆê¹Œ ê±”ë„¤ listenerë“¤ì„ ì—°ê²°ì‹œì¼œì£¼ëŠ” ë©”ì†Œë“œ
             rc.buttonHandler();
          }
       }
    }
       
    
-   // »ı¼ºÀÚ ¸Ş¼Òµå
+   // ìƒì„±ì ë©”ì†Œë“œ
    public LoginControler(Application app, LoginView v, RegisterView rv, RegisterControler rc, Socket s) throws IOException {
      
       this.app = app;
       view = v;
       this.rv = rv;
       this.rc = rc;
-      // eventHandler°¡ buttonHandler¶û ¿ø·¡´Â °°Àº ¸Ş¼Òµå¿´´Âµ¥ ·Î±×ÀÎÃ¢ µğÀÚÀÎ ÀÔÈ÷¸é¼­
-      // ±× ÀÌ¹ÌÁö Å¬¸¯ ÀÌº¥Æ® Ã³¸®ÇØÁÖ±â À§ÇØ¼­ MouseAdapter ¸¸µé´Ù º¸´Ï±î °Â³×µµ ¿¬°áÇØÁà¾ßµÇ¼­
-      // ÀÌ¸§À» eventHandler·Î ¹Ù²å°í, »ı°¢ÇØº¸´Ï±î ±»ÀÌ application »ı¼ºÀÚ¸Ş¼Òµå¿¡¼­ ¾ê³×¸¦ È£Ãâ½ÃÄÑ¾ßµÉ
-      // ÀÌÀ¯°¡ ¾ø´Â°Å°°¾Æ¼­ °¢ÀÚ »ı¼ºÀÚ ¸Ş¼Òµå¿¡¼­ È£ÃâÇØÁÖµµ·Ï ¹Ù…fÀ½. ³ªÁß¿¡ ´ë±â½ÇÀÌ¶û ÀÎ°ÔÀÓµµ buttonHandler¸¦
-      // °¢ÀÚ »ı¼ºÀÚ ¸Ş¼Òµå·Î ³Ö¾îÁÖ°í ÀÌ¸§µµ eventHandler·Î ¹Ù²Ü ¿¹Á¤
+      // eventHandlerê°€ buttonHandlerë‘ ì›ë˜ëŠ” ê°™ì€ ë©”ì†Œë“œì˜€ëŠ”ë° ë¡œê·¸ì¸ì°½ ë””ìì¸ ì…íˆë©´ì„œ
+      // ê·¸ ì´ë¯¸ì§€ í´ë¦­ ì´ë²¤íŠ¸ ì²˜ë¦¬í•´ì£¼ê¸° ìœ„í•´ì„œ MouseAdapter ë§Œë“¤ë‹¤ ë³´ë‹ˆê¹Œ ê±”ë„¤ë„ ì—°ê²°í•´ì¤˜ì•¼ë˜ì„œ
+      // ì´ë¦„ì„ eventHandlerë¡œ ë°”ê¿¨ê³ , ìƒê°í•´ë³´ë‹ˆê¹Œ êµ³ì´ application ìƒì„±ìë©”ì†Œë“œì—ì„œ ì–˜ë„¤ë¥¼ í˜¸ì¶œì‹œì¼œì•¼ë 
+      // ì´ìœ ê°€ ì—†ëŠ”ê±°ê°™ì•„ì„œ ê°ì ìƒì„±ì ë©”ì†Œë“œì—ì„œ í˜¸ì¶œí•´ì£¼ë„ë¡ ë°”Â…fìŒ. ë‚˜ì¤‘ì— ëŒ€ê¸°ì‹¤ì´ë‘ ì¸ê²Œì„ë„ buttonHandlerë¥¼
+      // ê°ì ìƒì„±ì ë©”ì†Œë“œë¡œ ë„£ì–´ì£¼ê³  ì´ë¦„ë„ eventHandlerë¡œ ë°”ê¿€ ì˜ˆì •
       this.server = s;
       //ct1 = new ControlerThread(server,1);
      
@@ -252,13 +248,13 @@ public class LoginControler{
    
    
    public void eventHandler() {
-      // ÀÌº¥Æ® ³Ñ°ÜÁÖ´Â °´Ã¼ÀÎ ButtonListener ¸¸µé°í ·Î±×ÀÎ, È¸¿ø°¡ÀÔ ¹öÆ°À» ¿¬°áÇØÁÜ
+      // ì´ë²¤íŠ¸ ë„˜ê²¨ì£¼ëŠ” ê°ì²´ì¸ ButtonListener ë§Œë“¤ê³  ë¡œê·¸ì¸, íšŒì›ê°€ì… ë²„íŠ¼ì„ ì—°ê²°í•´ì¤Œ
       listen = new ButtonListener();
       mouse = new MouseAdapter();
       view.getLogin_bt().addActionListener(listen);
       view.getJoin_bt().addActionListener(listen);
       
-      // ¾ê³×µµ ÀÌ¹ÌÁö¿¡ µû¸¥ ÀÌº¥Æ® Ã³¸®¶ó ¾ËÇÊ¿ä x
+      // ì–˜ë„¤ë„ ì´ë¯¸ì§€ì— ë”°ë¥¸ ì´ë²¤íŠ¸ ì²˜ë¦¬ë¼ ì•Œí•„ìš” x
       view.getExit_bt().addMouseListener(mouse);
       view.getLogin_bt().addMouseListener(mouse);
       view.getJoin_bt().addMouseListener(mouse);
